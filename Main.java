@@ -10,8 +10,7 @@ public class Main {
 
         Display display = new Display();
         Search search = new Search();
-        AddBook addBook = new AddBook();
-        ChoiceValidation choicevalidation = new ChoiceValidation();
+        Validation validation = new Validation();
 
 
         while(loop) {
@@ -24,11 +23,11 @@ public class Main {
             System.out.println("3. Display Books");
             System.out.println("4. Exit");
             
-            int choice = choicevalidation.getMenuChoice(sc);
+            int choice = validation.getMenuChoice(sc);
 
             switch (choice) {
                 case 1:
-                    Book newBook = addBook.inputDetails(sc);
+                    Book newBook = Book.createBook(sc, validation);
                     books.add(newBook);
                     System.out.println("Book added successfully!\n");
                     break;
