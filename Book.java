@@ -12,14 +12,28 @@ public class Book {
         this.year = year;
     }
 
-    public static Book createBook(Scanner sc, Validation validation) {
+    public static Book createBook(Scanner sc, Validation validation, ArrayList<Book> books) {
 
-        String title = validation.validateTitle(sc);
-        String author = validation.validateAuthor(sc);
-        int year = validation.validateYear(sc);
+        boolean validBook = false;
+        String title = "";
+        String author = "";
+        int year = 0;
 
-        return new Book(title, author, year);
+        while (!validBook) {
+
+            title = validation.validateTitle(sc);
+            author = validation.validateAuthor(sc);
+            year = validation.validateYear(sc);
+
+            if (validation.isDuplicateBook(books, title, author, year)) {
+                System.out.println("This book already exists.");
+            } else {
+                validBook = true;
+        }
     }
+
+    return new Book(title, author, year);
+}
 
     public String getTitle() {
         return title;

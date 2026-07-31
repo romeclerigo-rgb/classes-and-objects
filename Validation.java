@@ -3,6 +3,51 @@ import java.time.Year;
 
 public class Validation {
 
+    public boolean isDuplicateBook(
+        ArrayList<Book> books,
+        String title,
+        String author,
+        int year) {
+
+    for (Book book : books) {
+
+        if (book.getTitle().equalsIgnoreCase(title)
+                && book.getAuthor().equalsIgnoreCase(author)
+                && book.getYear() == year) {
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+    public int getMenuChoice(Scanner sc) {
+    boolean valid = false;
+    int choice = 0;
+
+    while (!valid) {
+
+        try {
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+
+            if (choice >= 1 && choice <= 4) {
+                valid = true;
+            } else {
+
+            System.out.println("Please enter a number from 1 to 4.");
+            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            sc.nextLine();
+        }
+    }
+    return choice;
+}
+
     public String validateTitle(Scanner sc) {
 
         boolean valid = false;
@@ -80,27 +125,7 @@ public class Validation {
         return year;
     }
 
-    public int getMenuChoice(Scanner sc) {
 
-    while (true) {
-
-        try {
-            System.out.print("Enter your choice: ");
-            int choice = sc.nextInt();
-            sc.nextLine();
-
-            if (choice >= 1 && choice <= 4) {
-                return choice;
-            }
-
-            System.out.println("Please enter a number from 1 to 4.");
-
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number.");
-            sc.nextLine();
-        }
-    }
-}
 
     public String validateSearch(Scanner sc) {
 

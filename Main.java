@@ -27,12 +27,12 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    Book newBook = Book.createBook(sc, validation);
+                    Book newBook = Book.createBook(sc, validation, books);
                     books.add(newBook);
                     System.out.println("Book added successfully!\n");
                     break;
                 case 2:
-                    search.searchBook(books);   
+                    search.searchBook(books, sc);   
                     break;
                 case 3:
                     display.displayBooks(books);

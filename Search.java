@@ -3,10 +3,9 @@ import java.util.*;
 
 public class Search {
 
-    public Scanner sc = new Scanner(System.in);
     Validation validation = new Validation();
     
-    public void searchBook(ArrayList<Book> books) {
+    public void searchBook(ArrayList<Book> books, Scanner sc){
 
     String keyword = validation.validateSearch(sc);
 
