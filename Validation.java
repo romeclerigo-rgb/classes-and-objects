@@ -2,12 +2,11 @@ import java.util.*;
 import java.time.Year;
 
 public class Validation {
-
     public boolean isDuplicateBook(
-        ArrayList<Book> books,
-        String title,
-        String author,
-        int year) {
+    ArrayList<Book> books,
+    String title,
+    String author,
+    int year) {
 
     for (Book book : books) {
 
@@ -21,7 +20,6 @@ public class Validation {
 
     return false;
 }
-
     public int getMenuChoice(Scanner sc) {
     boolean valid = false;
     int choice = 0;
@@ -104,7 +102,7 @@ public class Validation {
         while (!valid) {
 
             System.out.print("Enter Year: ");
-            String input = sc.nextLine();
+            String input = sc.nextLine().trim();
 
             if (!input.matches("\\d{4}")) {
                 System.out.println("Year must be a 4-digit number.");
